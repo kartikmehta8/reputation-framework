@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributor Rankings</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  <h1>Contributor Rankings</h1>
+
+  <!-- Main content for home page -->
+  <section>
+    <p style="text-align:center;">This site ranks contributors to the GitHub repository based on their commits and lines
+      of code, with additional information about each contributor.</p>
+  </section>
+
+  <!-- GitHub Contributors Section -->
+  <div class="contributors-grid">
+    {% for contributor in site.data.contributors %}
+    <div
+      class="contributor-card {% if forloop.first %}first-place{% elsif forloop.index == 2 %}second-place{% elsif forloop.index == 3 %}third-place{% endif %}">
+
+      <!-- Header Section: Avatar + Name -->
+      <div class="contributor-header">
+        <img src="{{ contributor[1].avatar_url }}" alt="{{ contributor[0] }}'s avatar" width="70" height="70">
+        <h3><a href="https://github.com/{{ contributor[1].username }}" target="_blank">{{ contributor[1].name }}</a>
+        </h3>
+      </div>
+
+      <!-- Centered Bio -->
+      <div class="contributor-detail-bio">
+        {{ contributor[1].bio }}
+      </div>
+
+      <!-- Contributor Details -->
+      <div class="contributor-details">
+        <div class="contributor-detail">
+          <span>Location</span> <span>{{ contributor[1].location }}</span>
+        </div>
+        <div class="contributor-detail">
+          <span>Followers</span> <span>{{ contributor[1].followers }}</span>
+        </div>
+        <div class="contributor-detail">
+          <span>Commits</span> <span>{{ contributor[1].commit_count }}</span>
+        </div>
+        <div class="contributor-detail">
+          <span>Lines of Code</span> <span>{{ contributor[1].lines_of_code }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+
+</html>
