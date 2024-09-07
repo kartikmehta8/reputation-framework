@@ -1,0 +1,17 @@
+title: Contributor Rankings
+email: kartikmehta202@gmail.com # Contact for any queries.
+description: A GitHub contributor ranking site using Jekyll, displaying commits, lines of code, and contributor details.
+baseurl: ""
+url: ""
+
+theme: minima
+plugins:
+  - jekyll-get-json
+
+json:
+  - name: contributors
+    src: "https://api.github.com/repos/<user_name>/<repository_name>/contributors"
+    headers:
+      Authorization: "token {{ site.github_token }}"
+
+github_token: ENV['GITHUB_TOKEN']
