@@ -1,6 +1,8 @@
 
 # GitHub Contributor Rankings
 
+![Banner](./assets/images/banner.webp)
+
 ## Project Overview
 
 This project is a **GitHub Contributor Ranking** system built using **Jekyll**. It displays the top contributors of any GitHub repository, ranking them based on their number of commits and lines of code contributed. Each contributor's profile includes details such as:
@@ -81,7 +83,7 @@ json:
       Authorization: "token {{ site.github_token }}"
 ```
 
-Replace `<user_name>` and `<repository_name>` with the GitHub repository's owner and name.
+Replace `<user_name>` and `<repository_name>` with the GitHub repository's owner and name. Do the same in `fetch_contributor_data.rb` line 6.
 
 ### 7. Run the Fetch Script
 
